@@ -91,3 +91,10 @@ else{ ?>
 <script type="text/javascript" src="upload/plugin/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 
 </head>
+<body>
+  <div class="header">
+    <!-- <img src='<?php echo $base_url ?>static/img/header.png' class="img-responsive mb15"> -->
+    <?php 
+      include "menu.php";
+    ?>    
+  </div>
