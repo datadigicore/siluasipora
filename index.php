@@ -26,6 +26,7 @@
         $view[] = "./view/include/head.php";
         $view[] = "./view/homeDekon.php";
         cekandgo($view, $utility, $home);
+      break;
       case 'review':
         $view[] = "./view/include/head.php";
         $view[] = "./view/homeReview.php";

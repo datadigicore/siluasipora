@@ -1,12 +1,7 @@
-
-
-PROSES
-
-proses/[nama proses]/variable/nilai/
-
+PROCESS
+process/[nama proses]/variable/
 CONTENT
-
-content/[head content]/[aksi]/nilai variabel
+content/[nama content]/variable/
 
 
 
