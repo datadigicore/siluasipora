@@ -43,7 +43,7 @@
     }
   }
   function cekandgo($data, $utility, $home=null) {
-    if (!empty($_SESSION)) {
+    if ($_SESSION['username'] != '') {
       $utility->location("content/home");
     }
     else {

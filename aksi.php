@@ -5,7 +5,10 @@
   else {
     switch ($link[2]) {
       case 'login':
-        include "./core/login_proses.php";
+        include "./core/prosesLogin.php";
+      break;
+      case 'import':
+        include "./core/process/prosesImport.php";
       break;
       default:
         $utility->location(".");

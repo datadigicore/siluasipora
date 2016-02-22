@@ -137,3 +137,8 @@ body {
 .control-label{
 	text-align: left !important;
 }
+
+#infoDialog{
+  height: 400px;
+  top: calc(50% - 150px) !important;
+}
