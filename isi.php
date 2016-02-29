@@ -4,23 +4,21 @@
       $utility->location(".");
     }
     else {
+      include "./view/include/head.php";
       switch ($link[2]) {
-        case 'home':
-          include "./view/include/head.php";
+        case 'home':          
           include "./view/content/contentIndex.php";
         break;
-        case 'import':
-          include "./view/include/head.php";
+        case 'import':          
           include "./view/content/contentImport.php";
         break;
         case 'anggaran':
           switch ($link[3]) {
-            case 'programmenteri':
-              include "./view/include/head.php";
+            case 'programmenteri':              
               include "./view/content/contentProgramMenteri.php";
             break;
             case 'perunitkerja':
-              echo "perunitkerja";
+              include "./view/content/contentPerUnitKerja.php";
             break;
             case 'programdekon':
               echo "programdekon";
@@ -42,8 +40,7 @@
         case 'management':
           management($link[3], $utility);
         break;
-        case 'profile':
-          include "./view/include/head.php";
+        case 'profile':          
           include "./view/content/contentProfile.php";
         break;
         default:

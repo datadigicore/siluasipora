@@ -86,8 +86,7 @@
                         <tr>
                           <th>Id</th>
                           <th>No</th>
-                          <th>Kode Program</th>
-                          <th>Nama Program</th>
+                          <th>Unit Kerja</th>
                           <th>Pagu Anggaran</th>
                           <th>Tahun Anggaran</th>
                           <th><center>Aksi</center></th>
@@ -103,7 +102,7 @@
                         "serverSide": true,
                         "scrollX": true,
                         "ajax": {
-                          "url": "<?php echo $base_url ?>process/anggaran/programkementerian/tableProgramKementerian",
+                          "url": "<?php echo $base_url ?>process/anggaran/programkementerian/tablePerUnitKerja",
                           "type": "POST"
                         },
                         "columnDefs" : [
@@ -113,23 +112,23 @@
                            "data"    : null,
                            "searchable": false,
                            "orderable" : false},
-                          {"targets" : 2},
-                          {"targets" : 3},
-                          {"targets" : 4},
-                          {"targets" : 5,
+                          {"targets" : 2,
                            "orderable" : false},
-                          {"targets" : 6,
+                          {"targets" : 3,
+                           "orderable" : false},
+                          {"targets" : 4,
+                           "orderable" : false},
+                          {"targets" : 5,
                            "data"    : null,
                            "orderable"     : false,
                            "defaultContent":  `<div class="row-fluid">
                               <button id="btnedt" class="col-xs-6 btn btn-sm btn-success btn-sm pull-left" title="Edit" style="border:1px solid white"><i class="fa fa-edit"></i></button>
                               <button id="btnhps" class="col-xs-6 btn btn-sm btn-danger btn-sm pull-right" title="Hapus" style="border:1px solid white"><i class="fa fa-trash-o"></i></button>
                             </div>`}
-                        ],
-                        "order": [[ 2, "asc" ]]
+                        ]
                       });
                       table.on( 'draw.dt', function () {
-                        table.column(1, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                        table.column(1, {}).nodes().each( function (cell, i) {
                           cell.innerHTML = i+1;
                         });
                       }).draw();
