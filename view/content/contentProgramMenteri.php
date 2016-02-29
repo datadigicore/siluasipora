@@ -21,6 +21,7 @@
                   </div>
                 </div>
                 <br id="form-here">
+                <?php $row = $anggaran->readKodeNamaOrganisasi();?>
                 <script type="text/javascript">
                   formData = `<div id="form" class="row" style="display:none">
                     <form class="form-horizontal col-sm-6 col-sm-offset-3" method="post" action="<?php echo $base_url?>process/anggaran/programmenteri">
@@ -28,31 +29,43 @@
                         <div class="form-group">
                           <label class="col-sm-3 control-label" style="text-align:right">Kode Organisasi</label>
                           <div class="col-sm-8">
-                            <input type="text" id="kd_organisasi" class="form-control" placeholder="Kode Organisasi">
+                            <input type="text" id="kode_organisasi" class="form-control" placeholder="Kode Organisasi" value="<?php echo $row->kode_organisasi?>" readonly>
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="col-sm-3 control-label" style="text-align:right">Nama Organisasi</label>
                           <div class="col-sm-8">
-                            <input type="text" id="nm_organisasi" class="form-control" placeholder="Nama Organisasi">
+                            <input type="text" id="nama_organisasi" class="form-control" placeholder="Nama Organisasi" value="<?php echo $row->nama_organisasi?>" readonly>
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="col-sm-3 control-label" style="text-align:right">Kode Program</label>
                           <div class="col-sm-8">
-                            <input type="text" id="kd_program" class="form-control" placeholder="Kode Program">
+                            <input type="text" id="kode_program" class="form-control" placeholder="Kode Program">
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="col-sm-3 control-label" style="text-align:right">Nama Program</label>
                           <div class="col-sm-8">
-                            <input type="text" id="nm_program" class="form-control" placeholder="Nama Program">
+                            <input type="text" id="nama_program" class="form-control" placeholder="Nama Program">
                           </div>
                         </div>
                         <div class="form-group">
                           <label class="col-sm-3 control-label" style="text-align:right">Pagu Anggaran</label>
                           <div class="col-sm-8">
                             <input type="text" id="pagu_anggaran" class="form-control" placeholder="Pagu Anggaran">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-3 control-label" style="text-align:right">Tahun Anggaran</label>
+                          <div class="col-sm-8">
+                            <select class="form-control" name="tahun_anggaran" required>
+                              <?php $earliest_year = date('Y')+1;
+                              echo '<option  value="" disabled selected>-- Pilih Tahun Anggaran --</option>';
+                              foreach (range(date('Y')-3, $earliest_year) as $x) {
+                                echo '<option value="'.$x.'">'.$x.'</option>';
+                              }?>
+                            </select>
                           </div>
                         </div>
                       </div>
@@ -68,9 +81,10 @@
                 </script>
                 <div class="row">
                   <div class="col-sm-12">
-                    <table class="display nowrap table table-bordered table-striped" cellspacing="0" width="100%">
+                    <table class="display table table-bordered table-striped" cellspacing="0" width="100%">
                       <thead>
                         <tr>
+                          <th>Id</th>
                           <th>No</th>
                           <th>Kode Program</th>
                           <th>Nama Program</th>
@@ -81,9 +95,42 @@
                       </thead>
                     </table>
                     <script type="text/javascript">
-                      $(".table").DataTable({
-                        scrollX : true
+                      var table = $(".table").DataTable({
+                        "oLanguage": {
+                          "sInfoFiltered": ""
+                        },
+                        "processing": true,
+                        "serverSide": true,
+                        "scrollX": true,
+                        "ajax": {
+                          "url": "<?php echo $base_url ?>process/anggaran/programkementerian/readTable",
+                          "type": "POST"
+                        },
+                        "columnDefs" : [
+                          {"targets" : 0,
+                           "visible" : false},
+                          {"targets" : 1,
+                           "data"    : null,
+                           "searchable": false,
+                           "orderable" : false},
+                          {"targets" : 2},
+                          {"targets" : 3},
+                          {"targets" : 4},
+                          {"targets" : 5},
+                          {"targets" : 6,
+                           "data"    : null,
+                           "defaultContent":  `<div class="row-fluid">
+                              <button id="btnedt" class="col-xs-6 btn btn-success btn-sm pull-left"><i class="fa fa-edit"></i> Edit</button>
+                              <button id="btnhps" class="col-xs-6 btn btn-danger btn-sm pull-right"><i class="fa fa-remove"></i> Hapus</button>
+                            </div>`}
+                        ],
+                        "order": [[ 2, "asc" ]]
                       });
+                      table.on( 'order.dt search.dt', function () {
+                        table.column(1, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                          cell.innerHTML = i+1;
+                        });
+                      }).draw();
                       $("#add-form").click(function(e){
                         e.preventDefault();
                         $("#form").html() == undefined  ?

@@ -13,6 +13,9 @@
       case 'profile':
         include "./core/process/prosesProfile.php";
       break;
+      case 'anggaran':
+        include "./core/process/prosesAnggaran.php";
+      break;
       default:
         $utility->location(".");
       break;
