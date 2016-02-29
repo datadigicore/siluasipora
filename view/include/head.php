@@ -16,13 +16,13 @@
 <link rel="stylesheet" href="<?php echo $base_url ?>static/plugin/datatables/media/css/dataTables.bootstrap.css">
 <script src="<?php echo $base_url ?>static/plugin/datatables/media/js/jquery.js"></script>
 <script src="<?php echo $base_url ?>static/plugin/bootstrap/bootstrap.min.js"></script>
-<script src="<?php echo $url_rewrite;?>static/plugin/datatables/media/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo $url_rewrite;?>static/plugin/datatables/media/js/dataTables.bootstrap.min.js"></script>
-<script src="<?php echo $url_rewrite;?>static/plugin/jquery/jquery.scrollTo.min.js"></script>
-<script src="<?php echo $url_rewrite;?>static/plugin/jquery/jquery.nicescroll.js"></script>
-<script src="<?php echo $url_rewrite;?>static/plugin/Chartjs_1.0.2/Chart.min.js"></script>
-<script src="<?php echo $url_rewrite;?>static/js/highcharts.js"></script>
-<script src="<?php echo $url_rewrite;?>static/js/jquery.highchartTable.js"></script>
+<script src="<?php echo $base_url ?>static/plugin/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo $base_url ?>static/plugin/datatables/media/js/dataTables.bootstrap.min.js"></script>
+<script src="<?php echo $base_url ?>static/plugin/jquery/jquery.scrollTo.min.js"></script>
+<script src="<?php echo $base_url ?>static/plugin/jquery/jquery.nicescroll.js"></script>
+<script src="<?php echo $base_url ?>static/plugin/Chartjs_1.0.2/Chart.min.js"></script>
+<script src="<?php echo $base_url ?>static/js/highcharts.js"></script>
+<script src="<?php echo $base_url ?>static/js/jquery.highchartTable.js"></script>
 
 </head>
 <body>

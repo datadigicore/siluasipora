@@ -30,7 +30,7 @@
         </div>
       </div><!-- end of row -->
     </div><!-- end of main class -->
-    <div class="footer">Powered By BBSDM Team : <b><a href='?module=redaksi'>Susunan Redaksi</a></b></div>
+    <div class="footer">Powered By BBSDM Team : <b><a href='<?php echo $base_content ?>'>Susunan Redaksi</a></b></div>
   </div><!-- end of container -->
 </body>
 </html>

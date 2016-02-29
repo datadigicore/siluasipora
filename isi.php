@@ -14,7 +14,24 @@
           include "./view/content/contentImport.php";
         break;
         case 'anggaran':
-          anggaran($link[3], $utility);
+          switch ($link[3]) {
+            case 'programmenteri':
+              include "./view/include/head.php";
+              include "./view/content/contentProgramMenteri.php";
+            break;
+            case 'perunitkerja':
+              echo "perunitkerja";
+            break;
+            case 'programdekon':
+              echo "programdekon";
+            break;
+            case 'dekonprovinsi':
+              echo "dekonprovinsi";
+            break;
+            default:
+              $utility->location(".");
+            break;
+          }
         break;
         case 'evaluasipusat':
           echo "evaluasipusat";
@@ -37,25 +54,6 @@
   }
   else {
     $utility->location(".");
-  }
-  function anggaran($data, $utility) {
-    switch ($data) {
-      case 'programmenteri':
-        echo "programmenteri";
-      break;
-      case 'perunitkerja':
-        echo "perunitkerja";
-      break;
-      case 'programdekon':
-        echo "programdekon";
-      break;
-      case 'dekonprovinsi':
-        echo "dekonprovinsi";
-      break;
-      default:
-        $utility->location(".");
-      break;
-    }
   }
   function management($data, $utility) {
     switch ($data) {
