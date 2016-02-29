@@ -10,6 +10,9 @@
       case 'import':
         include "./core/process/prosesImport.php";
       break;
+      case 'profile':
+        include "./core/process/prosesProfile.php";
+      break;
       default:
         $utility->location(".");
       break;

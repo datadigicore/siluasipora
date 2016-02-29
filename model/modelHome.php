@@ -1,5 +1,26 @@
 <?php
   class modelHome extends mysql_db {
+    public function cekJabatanDispora() {
+      $query  = "SELECT nama_provinsi FROM provinsi WHERE id_provinsi='$_SESSION[id_provinsi]'";
+      $result = $this->query($query);
+      $fetch  = $this->fetch_array($result);
+      $title  = 'Dispora '.$fetch['nama_provinsi'];
+      return $title;
+    }
+    public function cekJabatanKemenpora() {
+      $query  = "SELECT title FROM strukturorganisasi WHERE unit='$_SESSION[unit]' AND sub_unit='$_SESSION[sub_unit]' AND sub_subunit='$_SESSION[sub_subunit]'";
+      $result = $this->query($query);
+      $fetch  = $this->fetch_array($result);
+      $title  = $fetch['title'];
+      return $title;
+    }
+    public function infoTriwulanByKategori($kategori) {
+      $query  = "SELECT status_triwulan FROM setting_system WHERE kategori='$kategori' AND status_delete=0 AND status_aktif='1'";
+      $result = $this->query($query);
+      $fetch  = $this->fetch_array($result);
+      $status = 'Triwulan'.$fetch['status_triwulan']; 
+      return $status;
+    }
     public function infoTriwulanPusat() {
       $query  = "SELECT tanggal_akhir, status_triwulan FROM setting_system WHERE kategori='Pusat' AND status_delete=0 AND status_aktif='1'";
       $result = $this->query($query);

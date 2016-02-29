@@ -11,6 +11,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo $base_url ?>static/img/favicon.ico">
 
 <link rel="stylesheet" href="<?php echo $base_url ?>static/plugin/bootstrap/bootstrap.css">
+<link rel="stylesheet" href="<?php echo $base_url ?>static/plugin/font-awesome/css/font-awesome.min.css" type="text/css"/>
 <link rel="stylesheet" href="<?php echo $base_url ?>static/css/style.css" type="text/css"/>
 <link rel="stylesheet" href="<?php echo $base_url ?>static/plugin/datatables/media/css/dataTables.bootstrap.css">
 <script src="<?php echo $base_url ?>static/plugin/datatables/media/js/jquery.js"></script>

@@ -6,7 +6,7 @@
                 <h4 class="modal-title">Informasi</h4>
               </div>
               <div class="modal-body">
-                <p>Silahkan Masukkan Data RKAKL pada Form</p>
+                <p>Silahkan Isi Form Data RKAKL</p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>

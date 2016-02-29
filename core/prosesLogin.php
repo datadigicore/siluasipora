@@ -12,11 +12,15 @@
       );
       $result = $login->readUser($data);
       if ($result == true) {
-        $_SESSION['id_user']  = $result->id_user;
-        $_SESSION['nama']     = $result->nama;
-        $_SESSION['username'] = $result->user;
-        $_SESSION['jabatan']  = $result->jabatan;
-        $_SESSION['expire']   = time() + config::$session_time;
+        $_SESSION['id_user']     = $result->id_user;
+        $_SESSION['nama']        = $result->nama;
+        $_SESSION['username']    = $result->user;
+        $_SESSION['id_provinsi'] = $result->id_provinsi;
+        $_SESSION['jabatan']     = $result->jabatan;
+        $_SESSION['unit']        = $result->unit;
+        $_SESSION['sub_unit']    = $result->sub_unit;
+        $_SESSION['sub_subunit'] = $result->sub_subunit;
+        $_SESSION['expire']      = time() + config::$session_time;
         $utility->location("content/home");
       }
       else {

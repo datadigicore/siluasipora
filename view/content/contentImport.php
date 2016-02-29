@@ -5,7 +5,7 @@
         <a href="" id="add-form" class='btn btn-primary'>Tambah Data RKAKL</a><br><br id="form-here">
         <script type="text/javascript">
           formData = `<div id="form" class="row">
-            <form class="form-horizontal col-sm-5 col-sm-offset-3" method="post" action="<?php echo $base_url?>import/create">
+            <form class="form-horizontal col-sm-5 col-sm-offset-3" method="post" action="<?php echo $base_url?>process/import/create">
               <div class="box-body">
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Thn Angg</label>

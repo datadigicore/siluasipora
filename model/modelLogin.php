@@ -5,7 +5,6 @@
       $query  = "SELECT * from pengguna $where";
       $result = $this->query($query);
       $fetch  = $this->fetch_object($result);
-      // $this->closeconn();
       return $fetch;
     }
   }
