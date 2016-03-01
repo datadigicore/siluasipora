@@ -21,7 +21,7 @@
               include "./view/content/contentPerUnitKerja.php";
             break;
             case 'programdekon':
-              echo "programdekon";
+              include "./view/content/contentProgramDekon.php";
             break;
             case 'dekonprovinsi':
               echo "dekonprovinsi";

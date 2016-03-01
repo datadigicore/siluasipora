@@ -86,9 +86,10 @@
                         <tr>
                           <th>Id</th>
                           <th>No</th>
-                          <th>Kode Program</th>
-                          <th>Nama Program</th>
-                          <th>Pagu Anggaran</th>
+                          <th>Kode</th>
+                          <th>Program</th>
+                          <th>Asisten Deputi</th>
+                          <th>Anggaran</th>
                           <th>Tahun Anggaran</th>
                           <th><center>Aksi</center></th>
                         </tr>
@@ -103,7 +104,7 @@
                         "serverSide": true,
                         "scrollX": true,
                         "ajax": {
-                          "url": "<?php echo $base_url ?>process/anggaran/programkementerian/table",
+                          "url": "<?php echo $base_url ?>process/anggaran/programdekon/table",
                           "type": "POST"
                         },
                         "columnDefs" : [
@@ -116,9 +117,10 @@
                           {"targets" : 2},
                           {"targets" : 3},
                           {"targets" : 4},
-                          {"targets" : 5,
-                           "orderable" : false},
+                          {"targets" : 5},
                           {"targets" : 6,
+                           "orderable" : false},
+                          {"targets" : 7,
                            "data"    : null,
                            "orderable"     : false,
                            "defaultContent":  `<div class="row-fluid">

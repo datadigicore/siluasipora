@@ -39,15 +39,27 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <label class="col-sm-3 control-label" style="text-align:right">Kode Program</label>
+                          <label class="col-sm-3 control-label" style="text-align:right">Unit</label>
                           <div class="col-sm-8">
-                            <input type="text" id="kode_program" class="form-control" placeholder="Kode Program">
+                            <input type="text" id="kode_program" class="form-control" placeholder="Unit">
                           </div>
                         </div>
                         <div class="form-group">
-                          <label class="col-sm-3 control-label" style="text-align:right">Nama Program</label>
+                          <label class="col-sm-3 control-label" style="text-align:right">Sub Unit</label>
                           <div class="col-sm-8">
-                            <input type="text" id="nama_program" class="form-control" placeholder="Nama Program">
+                            <input type="text" id="nama_program" class="form-control" placeholder="Sub Unit">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-3 control-label" style="text-align:right">Sub Subunit</label>
+                          <div class="col-sm-8">
+                            <input type="text" id="nama_program" class="form-control" placeholder="Sub Subunit">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-3 control-label" style="text-align:right">Sisa Anggaran</label>
+                          <div class="col-sm-8">
+                            <input type="text" id="pagu_anggaran" class="form-control" placeholder="Sisa Anggaran" readonly>
                           </div>
                         </div>
                         <div class="form-group">
@@ -102,7 +114,7 @@
                         "serverSide": true,
                         "scrollX": true,
                         "ajax": {
-                          "url": "<?php echo $base_url ?>process/anggaran/programkementerian/tablePerUnitKerja",
+                          "url": "<?php echo $base_url ?>process/anggaran/perunitkerja/table",
                           "type": "POST"
                         },
                         "columnDefs" : [

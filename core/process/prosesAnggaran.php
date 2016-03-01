@@ -2,7 +2,7 @@
 	switch ($link[3]) {
     case 'programkementerian':
       switch ($link[4]) {
-        case 'tableProgramKementerian':
+        case 'table':
           $table      = "main_program_pusat";
           $primaryKey = "id_program_pusat";
           $columns = array(
@@ -14,7 +14,14 @@
           );
           $datatable->get_table($table, $primaryKey, $columns, $join, $where, $group, $order);
         break;
-        case 'tablePerUnitKerja':
+        default:
+          $utility->location("content/import");
+        break;
+      }
+    break;
+    case 'perunitkerja':
+    	switch ($link[4]) {
+        case 'table':
           $table      = "anggaran_kementerian";
           $primaryKey = "id_anggaran_kementerian";
           $columns = array(
@@ -25,9 +32,9 @@
                 return $d;
               }
               else {
-                return "<img src='../../static/img/renter.png' width='16'> ".$d;
+                return "<img src='../../static/img/enter.gif' width='16'> ".$d;
               }
-            } ),
+            }),
             array( 'db' => 'pagu_anggaran',           'dt' => 3, 'formatter' => function($d,$row){return 'Rp. '.number_format($d,2,",",".");} ),
             array( 'db' => 'tahun_anggaran',          'dt' => 4 )
           );
@@ -40,11 +47,27 @@
         break;
       }
     break;
-    case 'read':
-    	echo "READ HERE";
-    break;
-    case 'update':
-      echo "UPDATE HERE";
+    case 'programdekon':
+      switch ($link[4]) {
+        case 'table':
+          $table      = "program_dekon";
+          $primaryKey = "id_program_dekon";
+          $columns = array(
+            array( 'db' => 't1.id_program_dekon', 'dt' => 0 ),
+            array( 'db' => 't1.kode_kegiatan',    'dt' => 2 ),
+            array( 'db' => 't1.program_kegiatan', 'dt' => 3 ),
+            array( 'db' => 't2.title',            'dt' => 4 ),
+            array( 'db' => 't1.anggaran',         'dt' => 5, 'formatter' => function($d,$row){return 'Rp. '.number_format($d,2,",",".");} ),
+            array( 'db' => 't1.tahun_anggaran',   'dt' => 6 )
+          );
+          $join = "FROM {$table} AS t1 LEFT JOIN strukturorganisasi AS t2 ON (t1.unit = t2.unit AND t1.sub_unit = t2.sub_unit AND t1.sub_subunit = t2.sub_subunit)";
+          $where = 't1.status_delete = 0';
+          $datatable->get_table($table, $primaryKey, $columns, $join, $where, $group, $order);
+        break;
+        default:
+          $utility->location("content/import");
+        break;
+      }
     break;
     case 'delete':
       echo "DELETE HERE";

@@ -142,3 +142,20 @@ body {
   height: 400px;
   top: calc(50% - 150px) !important;
 }
+
+.table>thead{
+    background: #2B91CF;
+    color: white;
+}
+.table>thead>tr>th{
+    text-align: center;
+}
+.table>tbody>tr>td{
+    vertical-align: middle;
+}
+.table>tbody>tr:nth-child(odd)>td{
+    background: #EEEEFF;
+}
+.table>tbody>tr:nth-child(even)>td{
+    background: #FFFFFF;
+}
